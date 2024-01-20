@@ -1,0 +1,31 @@
+_schema-version: '3.1'
+ID: cap_hands-on-240120
+version: 1.0.0
+description: "A simple CAP project."
+
+modules:
+  - name: cap_hands-on-240120-srv
+    type: nodejs
+    path: gen/srv
+    parameters:
+      buildpack: nodejs_buildpack
+      disk-quota: 256M
+      memory: 256M
+    build-parameters:
+      builder: npm
+    provides:
+      - name: srv-api # required by consumers of CAP services (e.g. approuter)
+        properties:
+          srv-url: ${default-url}
+
+parameters:
+  enable-parallel-deployments: true
+build-parameters:
+  before-all:
+    - builder: custom
+      commands:
+        - npx cds build --production
+        - npx -p @sap/cds-dk cds build --production
+        - cp -r db/csv gen/srv/srv/data
+
+    

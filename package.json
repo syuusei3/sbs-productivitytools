@@ -1,0 +1,34 @@
+{
+  "name": "cap_hands-on-240120",
+  "version": "1.0.0",
+  "description": "A simple CAP project.",
+  "repository": "<Add your repository here>",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "@sap/cds": "^7",
+    "express": "^4",
+    "sqlite3": "^5.0.2"
+  },
+  "devDependencies": {
+    "@cap-js/sqlite": "^1.4.0",
+    "@sap/cds-dk": "^7"
+  },
+  "scripts": {
+    "start": "cds-serve"
+  },
+  "cds": {
+    "requires": {
+        "auth": "dummy",
+        "db": {
+            "kind": "sqlite",
+            "credentials": {
+                "database": ":memory:"
+            }
+        }
+    },
+    "features": {
+        "in_memory_db": true
+    }
+  }
+}

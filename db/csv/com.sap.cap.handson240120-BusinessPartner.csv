@@ -1,0 +1,3 @@
+BusinessPartnerID;FirstName;LastName;Address;PostalCode;CreatedAt
+key01;TestFirstName;TestLastName;TestAddress;1234;2023-08-01
+key02;TestFirstName2;TestLastName2;TestAddress2;87654321;2023-08-02
